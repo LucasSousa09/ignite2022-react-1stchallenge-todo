@@ -1,0 +1,85 @@
+.taskContainer{
+    display: flex;
+    align-items: flex-start;
+    justify-content: center;
+
+    width: 100%;
+
+    gap: 1rem;
+
+    background-color: var(--gray-500);
+    
+    border-radius: 8px;
+    border: 1px solid var(--gray-400);
+
+    padding: 1rem;
+}
+
+.taskContainer.taskCompleted{
+    border: 1px solid var(--gray-500)
+}
+
+.taskContainer .checkbox{
+    display:flex;
+    align-items: center;
+    justify-content: center;
+
+    margin-top: .125rem;
+
+    width: 1rem;
+    height: 1rem;
+
+    border: 2px solid var(--blue-500);
+    border-radius: 50%;
+    
+    background-color: transparent;
+    color: var(--gray-100)
+}
+
+.taskContainer .checkbox:hover{
+    background-color: rgba(30, 111, 159, 0.2);
+    border: 2px solid var(--blue-700);
+}
+
+.taskContainer .checkbox.clicked{
+    border: 2px solid var(--purple-700);
+    background-color: var(--purple-700)
+}
+
+.taskContainer .checkbox.clicked:hover{
+    border: 2px solid var(--purple-500);
+    background-color: var(--purple-500)
+}
+
+.taskContainer p{
+    flex: 1;
+    font-size: .875rem;
+    line-height: 1.4;
+    color: var(--gray-100)
+}
+
+.taskContainer p.lineThrough{
+    text-decoration:line-through;
+    color: var(--gray-300)
+}
+
+.deleteButton{
+    display:flex;
+    align-items: center;
+    justify-content: center;
+
+    background-color: transparent;
+
+    width:1.5rem;
+    height:1.5rem;
+
+    border:none;
+    border-radius: 4px;
+
+    color:var(--gray-300)
+}
+
+.deleteButton:hover{
+    color: var(--red-500);
+    background-color: var(--gray-400)
+}

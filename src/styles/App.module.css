@@ -1,0 +1,185 @@
+.appContainer{
+    display: flex;
+    flex-direction:column;
+    align-items: center;
+
+    flex: 1;
+}
+
+/* header - HTML element */
+
+.appHeader{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    width: 100%;
+
+    background-color: var(--gray-700);
+    padding: 4.75rem 0;
+}
+
+.appHeader h1 span{
+    font-size: 2.5rem;
+    font-weight: 900;
+}
+
+.appHeader h1 .to{
+    color: var(--blue-500)
+}
+
+.appHeader h1 .do{
+    color:var(--purple-700)
+}
+
+.appHeader img{
+    height: 2.25rem;
+    margin-right: .75rem;
+}
+
+/* Input Container */
+
+.inputContainer{
+    display: flex;
+    align-items: center;
+    justify-content:center;
+
+    gap: .5rem;
+
+    width: 100%;
+    max-width: 736px;
+
+    margin-top: -1.5rem;
+}
+
+.inputContainer input{
+    flex:1;
+    
+    border: none;
+    border-radius: 8px;
+
+    color:var(--gray-100);
+    background-color: var(--gray-500);
+
+    line-height: 1.4;
+
+    padding: 1rem;
+}
+
+.inputContainer input:focus{
+    outline: 1px solid var(--purple-700)
+}
+
+.inputContainer button{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    gap: .5rem;
+
+    font-size: .875rem;
+    font-weight: 700;
+
+    border:none;
+    border-radius:8px;
+
+    color: var(--gray-100);
+    background-color: var(--blue-700);
+
+    padding: 1rem;
+
+    transition: background-color .2s; 
+}
+
+.inputContainer button:hover{
+    background-color: var(--blue-500);
+}
+
+.inputContainer button:disabled{
+    background-color: var(--gray-300);
+    cursor: not-allowed
+}
+
+/* Task Container */
+
+.tasksContainer{
+    margin-top: 4rem;
+
+    display: flex;
+    flex-direction: column;
+
+    width: 100%;
+    max-width: 736px;
+}
+
+.tasksContainer header{
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+}
+
+.tasksContainer header span{
+    font-size: .875rem;
+    font-weight: 700;
+}
+
+.tasksContainer header .createdTasks {
+    color: var(--blue-500);
+}
+
+.tasksContainer header .completedTasks{
+    color: var(--purple-500);
+}
+
+.tasksContainer header .createdTasks span,
+.tasksContainer header .completedTasks span{
+    font-size: .75rem;
+
+    color: var(--gray-200);
+    background-color: var(--gray-400);
+
+    padding: .125rem .5rem;
+    border-radius: .5rem
+}
+
+/* TaskList */
+
+.tasksList{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-direction: column;
+
+    gap: .75rem;
+
+    width: 100%;
+    max-width: 736px;
+
+    margin-top: 1.5rem;
+}
+
+.tasksList .doesNotHasTasksContainer{
+    display: flex;
+    flex-direction:column;
+    align-items: center;
+    justify-content: center;
+
+    border-radius: 8px;
+    border-top: 1px solid var(--gray-400);
+
+    width: 100%;
+    padding: 4rem 1.5rem;
+}
+
+.tasksList .doesNotHasTasksContainer img{
+    width: 3.5rem;
+    height: 3.5rem;
+
+    margin-bottom: 1rem;
+}
+
+.tasksList .doesNotHasTasksContainer strong,
+.tasksList .doesNotHasTasksContainer span{
+    font-size: 1rem;
+    line-height: 1.4;
+}
