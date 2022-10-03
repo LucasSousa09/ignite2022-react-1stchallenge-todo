@@ -1,10 +1,9 @@
 import './styles/global.css'
 import styles from './styles/App.module.css'
 
-import { PlusCircle } from 'phosphor-react'
+import { PlusCircle, ClipboardText, Sun, Moon } from 'phosphor-react'
 
 import rocketIcon from './assets/rocket.svg'
-import clipboardIcon from './assets/clipboard.svg'
 
 import { Task } from './components/Task'
 import { useEffect, useState } from 'react'
@@ -19,9 +18,11 @@ export function App() {
   const [ tasksList, setTasksList ] = useState<Task[]>([])
   const [ tasksCompleted, setTasksCompleted ] = useState(0)
   const [ newTask, setNewTask ] = useState('')
+  const [theme, setTheme] = useState('dark')
 
   useEffect(() => {
     const tasksOnLocalStorage = localStorage.getItem('tasksList')
+    const themeColor = localStorage.getItem('themeColor')
 
     if(tasksOnLocalStorage){
       const parsedTasksOnLocalStorage: Task[] = JSON.parse(tasksOnLocalStorage)
@@ -38,6 +39,10 @@ export function App() {
       )
       setTasksList(parsedTasksOnLocalStorage)
       setTasksCompleted(numberOfCompletedTasks)
+    }
+
+    if(themeColor){
+      setTheme(themeColor)
     }
   },[])
 
@@ -91,6 +96,18 @@ export function App() {
     }
   };
 
+  function setDarkTheme() {
+     if(theme === 'dark'){
+       localStorage.setItem('themeColor', 'light')
+       setTheme('light')
+     }
+     else{
+       localStorage.setItem('themeColor', 'dark')
+       setTheme('dark')
+     } 
+  }
+
+
   function handleAddNewTask(){
     const newTaskForList = {
       id: new Date().toISOString(),
@@ -122,8 +139,14 @@ export function App() {
   }
 
   return (
-    <div className={styles.appContainer}>
-
+    <div className={styles.appContainer} data-theme={theme}>
+      <button className={styles.themeButton} onClick={setDarkTheme}>
+        {
+          theme === 'dark' ?
+          <Sun size={32} className={styles.sunIcon}/> :
+          <Moon size={32} className={styles.moonIcon}/>
+        }
+      </button>
       <header className={styles.appHeader}>
         <img src={rocketIcon} alt="Logo" />
         <h1>
@@ -131,6 +154,7 @@ export function App() {
         </h1>
       </header>
 
+    <div className={styles.contentContainer}>
       <div className={styles.inputContainer}>
         <input required onKeyDown={handleEnterKey} value={newTask} onChange={evt => setNewTask(evt.target.value)} type="text" placeholder='Adicione uma nova tarefa'/>
         <button disabled={newTask.length === 0} onClick={handleAddNewTask}>Criar <PlusCircle size={16}/> </button>
@@ -151,7 +175,7 @@ export function App() {
             </> :
             (
               <div className={styles.doesNotHasTasksContainer}>
-                <img src={clipboardIcon} alt="Ícone de prancheta" />
+                <ClipboardText  size={48} className={styles.clipboardIcon}/>
                 <strong>Você ainda não tem tarefas cadastradas</strong>
                 <span>Crie tarefas e organize seus items a fazer</span>
               </div>
@@ -159,6 +183,7 @@ export function App() {
           }
         </div>
       </div>
+    </div>
     </div>
   )   
 }

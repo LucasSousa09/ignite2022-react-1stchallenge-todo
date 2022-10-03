@@ -7,16 +7,16 @@
 
     gap: 1rem;
 
-    background-color: var(--gray-500);
+    background-color: var(--background-boxes);
     
     border-radius: 8px;
-    border: 1px solid var(--gray-400);
+    border: 1px solid var(--boxes-border);
 
     padding: 1rem;
 }
 
 .taskContainer.taskCompleted{
-    border: 1px solid var(--gray-500)
+    border: 1px solid var(--task-completed-border)
 }
 
 .taskContainer .checkbox{
@@ -33,7 +33,7 @@
     border-radius: 50%;
     
     background-color: transparent;
-    color: var(--gray-100)
+    color: var(--text)
 }
 
 .taskContainer .checkbox:hover{
@@ -55,12 +55,12 @@
     flex: 1;
     font-size: .875rem;
     line-height: 1.4;
-    color: var(--gray-100)
+    color: var(--text)
 }
 
 .taskContainer p.lineThrough{
     text-decoration:line-through;
-    color: var(--gray-300)
+    color: var(--ashen)
 }
 
 .deleteButton{
@@ -76,10 +76,10 @@
     border:none;
     border-radius: 4px;
 
-    color:var(--gray-300)
+    color: #808080;
 }
 
 .deleteButton:hover{
     color: var(--red-500);
-    background-color: var(--gray-400)
+    background-color: var(--secondary-background)
 }

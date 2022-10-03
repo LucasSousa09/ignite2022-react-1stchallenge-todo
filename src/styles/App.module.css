@@ -1,10 +1,45 @@
 .appContainer{
+    position: relative;
+
     display: flex;
     flex-direction:column;
     align-items: center;
 
     flex: 1;
+
+    height: 100vh;
+    background-color: var(--primary-background)
 }
+
+/* button - ThemeButton */
+
+.themeButton {
+    position: absolute;
+    top: 1rem;
+    right: 1rem;
+
+    border: none;
+    background: transparent;
+}
+
+.sunIcon {
+    color: var(--purple-500);
+    transition: color .2s ease;  
+}
+
+.themeButton:hover .sunIcon{
+    color: var(--blue-500)
+}
+
+.moonIcon {
+    color: var(--blue-500);
+    transition: color .2s ease;   
+}
+
+.themeButton:hover .moonIcon{
+    color: var(--purple-500)
+}
+
 
 /* header - HTML element */
 
@@ -15,7 +50,7 @@
 
     width: 100%;
 
-    background-color: var(--gray-700);
+    background-color: var(--background-header);
     padding: 4.75rem 0;
 }
 
@@ -37,6 +72,14 @@
     margin-right: .75rem;
 }
 
+/* Content Container */
+
+.contentContainer {
+    width: 100%;
+    max-width: 736px;
+}
+
+
 /* Input Container */
 
 .inputContainer{
@@ -47,7 +90,6 @@
     gap: .5rem;
 
     width: 100%;
-    max-width: 736px;
 
     margin-top: -1.5rem;
 }
@@ -55,16 +97,17 @@
 .inputContainer input{
     flex:1;
     
-    border: none;
+    border: 1px solid var(--boxes-border);
     border-radius: 8px;
 
-    color:var(--gray-100);
-    background-color: var(--gray-500);
+    color:var(--text);
+    background-color: var(--background-boxes);
 
     line-height: 1.4;
 
     padding: 1rem;
 }
+
 
 .inputContainer input:focus{
     outline: 1px solid var(--purple-700)
@@ -83,7 +126,7 @@
     border:none;
     border-radius:8px;
 
-    color: var(--gray-100);
+    color: var(--button-text);
     background-color: var(--blue-700);
 
     padding: 1rem;
@@ -96,7 +139,7 @@
 }
 
 .inputContainer button:disabled{
-    background-color: var(--gray-300);
+    background-color: var(--ashen);
     cursor: not-allowed
 }
 
@@ -109,7 +152,6 @@
     flex-direction: column;
 
     width: 100%;
-    max-width: 736px;
 }
 
 .tasksContainer header{
@@ -135,8 +177,8 @@
 .tasksContainer header .completedTasks span{
     font-size: .75rem;
 
-    color: var(--gray-200);
-    background-color: var(--gray-400);
+    color: var(--span);
+    background-color: var(--secondary-background);
 
     padding: .125rem .5rem;
     border-radius: .5rem
@@ -153,7 +195,6 @@
     gap: .75rem;
 
     width: 100%;
-    max-width: 736px;
 
     margin-top: 1.5rem;
 }
@@ -165,7 +206,7 @@
     justify-content: center;
 
     border-radius: 8px;
-    border-top: 1px solid var(--gray-400);
+    border-top: 1px solid var(--secondary-background);
 
     width: 100%;
     padding: 4rem 1.5rem;
@@ -182,4 +223,33 @@
 .tasksList .doesNotHasTasksContainer span{
     font-size: 1rem;
     line-height: 1.4;
+
+    color: var(--no-tasks);
+    text-align: center;
+
+    margin-bottom: 0.25rem
+}
+
+.clipboardIcon {
+    color: var(--no-tasks);
+    margin-bottom: 1rem;
+}
+
+@media (max-width: 800px){
+    .contentContainer{
+        width: 90% 
+    }
+}
+
+@media (max-width: 400px){
+    .tasksList .doesNotHasTasksContainer strong,
+    .tasksList .doesNotHasTasksContainer span{
+        font-size: .9rem;
+        line-height: 1.4;
+    
+        color: var(--text);
+        text-align: center;
+    
+        margin-bottom: 0.25rem
+    }
 }
